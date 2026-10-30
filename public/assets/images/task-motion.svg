@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2c2820"/>
+      <stop offset="1" stop-color="#0b0b0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#mbg)"/>
+  <g stroke="#c7a86b" fill="none">
+    <path d="M-100 700 400 20M0 760 500 80M100 820 600 140M200 880 700 200M300 940 800 260M400 1000 900 320M500 1060 1000 380" opacity=".22"/>
+    <path d="M200 160c240 80 480 400 800 480" stroke-width="1.5" opacity=".55"/>
+    <path d="M120 230c260 70 460 360 760 430" stroke-width=".8" opacity=".3"/>
+  </g>
+  <circle cx="880" cy="270" r="140" fill="none" stroke="#c7a86b" opacity=".55"/>
+  <circle cx="880" cy="270" r="104" fill="none" stroke="#c7a86b" opacity=".35"/>
+  <circle cx="880" cy="270" r="68" fill="#c7a86b" opacity=".9"/>
+  <path d="M862 238l58 32-58 32z" fill="#111"/>
+  <g font-family="'Segoe UI', Arial, sans-serif" fill="#cbb98e">
+    <text x="80" y="112" font-size="15" letter-spacing="8">MOTION / 2026</text>
+    <text x="1120" y="112" text-anchor="end" font-size="15" letter-spacing="6">REEL 01</text>
+    <text x="80" y="720" font-size="13" letter-spacing="7" fill="#8c7d62">FRAME BY FRAME</text>
+    <text x="1120" y="720" text-anchor="end" font-size="13" letter-spacing="5" fill="#8c7d62">00:42 MIN</text>
+  </g>
+</svg>

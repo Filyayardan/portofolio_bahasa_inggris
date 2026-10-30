@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="vbg" cx="50%" cy="45%" r="70%">
+      <stop offset="0" stop-color="#3d362b"/>
+      <stop offset=".55" stop-color="#191816"/>
+      <stop offset="1" stop-color="#0b0b0a"/>
+    </radialGradient>
+    <linearGradient id="vgold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0deb2"/>
+      <stop offset=".5" stop-color="#c7a86b"/>
+      <stop offset="1" stop-color="#826536"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#vbg)"/>
+  <g fill="none" stroke="#c7a86b" opacity=".18">
+    <circle cx="600" cy="400" r="330"/>
+    <circle cx="600" cy="400" r="255"/>
+    <circle cx="600" cy="400" r="180"/>
+    <path d="M0 400h1200M600 0v800"/>
+  </g>
+  <g fill="url(#vgold)">
+    <circle cx="600" cy="400" r="88" opacity=".94"/>
+    <path d="M579 355l70 45-70 45z" fill="#11110f"/>
+  </g>
+  <g stroke="#c7a86b" stroke-width="1" opacity=".5">
+    <path d="M56 60h60M56 60v60M1144 60h-60M1144 60v60M56 740h60M56 740v-60M1144 740h-60M1144 740v-60"/>
+  </g>
+  <g font-family="'Segoe UI', Arial, sans-serif" fill="#cbb98e">
+    <text x="80" y="112" font-size="15" letter-spacing="8">FILM / 2026</text>
+    <text x="1120" y="112" text-anchor="end" font-size="15" letter-spacing="6">01 — 04</text>
+    <text x="80" y="715" font-size="13" letter-spacing="7" fill="#8c7d62">RUANG &amp; CAHAYA</text>
+    <text x="1120" y="715" text-anchor="end" font-size="13" letter-spacing="5" fill="#8c7d62">A SHORT FILM</text>
+  </g>
+  <g fill="#c7a86b" opacity=".55">
+    <rect x="80" y="145" width="1040" height="1"/>
+    <rect x="80" y="640" width="1040" height="1"/>
+  </g>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" role="img" aria-labelledby="title desc">
+  <title id="title">Yardan Danz portfolio monogram</title>
+  <desc id="desc">An art deco portrait placeholder with a gold YD monogram on a dark background.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="32%" r="80%">
+      <stop offset="0" stop-color="#33302a"/>
+      <stop offset=".55" stop-color="#1b1a17"/>
+      <stop offset="1" stop-color="#0c0c0b"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1dfb1"/>
+      <stop offset=".45" stop-color="#c7a86b"/>
+      <stop offset="1" stop-color="#87693a"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4e8cd" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#f4e8cd" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grain" width="90" height="90" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="13" r=".8" fill="#fff" opacity=".08"/>
+      <circle cx="58" cy="31" r=".55" fill="#fff" opacity=".06"/>
+      <circle cx="32" cy="72" r=".7" fill="#fff" opacity=".07"/>
+      <circle cx="78" cy="83" r=".5" fill="#fff" opacity=".05"/>
+    </pattern>
+    <clipPath id="arch">
+      <path d="M150 1110V470c0-210 150-360 350-360s350 150 350 360v640z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1000" height="1250" fill="url(#bg)"/>
+  <rect width="1000" height="1250" fill="url(#grain)"/>
+
+  <g clip-path="url(#arch)">
+    <rect x="150" y="110" width="700" height="1000" fill="url(#fade)"/>
+    <g fill="none" stroke="url(#gold)" opacity=".26">
+      <circle cx="500" cy="520" r="420"/>
+      <circle cx="500" cy="520" r="350"/>
+      <circle cx="500" cy="520" r="280"/>
+      <circle cx="500" cy="520" r="210"/>
+    </g>
+    <g stroke="url(#gold)" stroke-width="1" opacity=".18">
+      <path d="M500 100v840M80 520h840M203 223l594 594M797 223L203 817"/>
+    </g>
+    <path d="M500 175 584 520 500 865 416 520z" fill="none" stroke="url(#gold)" stroke-width="1.2" opacity=".5"/>
+    <path d="M500 275 555 520 500 765 445 520z" fill="none" stroke="url(#gold)" stroke-width=".8" opacity=".32"/>
+    <g fill="url(#gold)" opacity=".9">
+      <path d="M500 118l9 28 29 9-29 9-9 28-9-28-29-9 29-9z"/>
+      <path d="M500 1005l6 19 20 6-20 6-6 19-6-19-20-6 20-6z"/>
+    </g>
+  </g>
+
+  <path d="M150 1110V470c0-210 150-360 350-360s350 150 350 360v640" fill="none" stroke="url(#gold)" stroke-width="2"/>
+  <path d="M166 1110V474c0-195 141-338 334-338s334 143 334 338v636" fill="none" stroke="#c7a86b" stroke-width=".7" opacity=".5"/>
+
+  <g font-family="Georgia, 'Times New Roman', serif" fill="url(#gold)" text-anchor="middle">
+    <text x="500" y="575" font-size="250" letter-spacing="-14">YD</text>
+  </g>
+  <text x="500" y="647" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="19" letter-spacing="14" fill="#e8dcc4">PORTFOLIO 2026</text>
+  <text x="500" y="707" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" letter-spacing="8" fill="#9d8d70">CREATIVE DEVELOPER</text>
+
+  <g font-family="'Segoe UI', Arial, sans-serif" fill="#8b7d64" font-size="13" letter-spacing="6">
+    <text x="70" y="120" transform="rotate(-90 70 120)">JAKARTA — INDONESIA</text>
+    <text x="930" y="1120" transform="rotate(-90 930 1120)">EST. MMXXII</text>
+  </g>
+
+  <g stroke="#c7a86b" opacity=".65">
+    <path d="M60 60h50M60 60v50M940 60h-50M940 60v50M60 1190h50M60 1190v-50M940 1190h-50M940 1190v-50"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="nbg" cx="70%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#33302a"/>
+      <stop offset="1" stop-color="#0e0e0d"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#nbg)"/>
+  <g stroke="#c7a86b" opacity=".18">
+    <path d="M0 110h1200M0 690h1200"/>
+    <path d="M160 0v800M1040 0v800"/>
+  </g>
+  <g transform="rotate(-4 600 400)">
+    <rect x="250" y="140" width="700" height="520" fill="#e9e0cd" opacity=".94"/>
+    <rect x="250" y="140" width="700" height="520" fill="none" stroke="#b69864"/>
+    <g fill="none" stroke="#9b927f" opacity=".55">
+      <path d="M310 240h580M310 290h580M310 340h580M310 390h580M310 440h580M310 490h580M310 540h440"/>
+    </g>
+    <text x="310" y="215" font-family="Georgia, serif" font-size="42" fill="#1a1815">Notes on making.</text>
+    <text x="310" y="590" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#8b6f43">process, patience &amp; the space between.</text>
+  </g>
+  <g font-family="'Segoe UI', Arial, sans-serif" fill="#cbb98e">
+    <text x="80" y="112" font-size="15" letter-spacing="8">JOURNAL / 2026</text>
+    <text x="1120" y="112" text-anchor="end" font-size="15" letter-spacing="6">NO. 06</text>
+    <text x="80" y="735" font-size="13" letter-spacing="7" fill="#8c7d62">PROCESS NOTES</text>
+    <text x="1120" y="735" text-anchor="end" font-size="13" letter-spacing="5" fill="#8c7d62">A PERSONAL LOG</text>
+  </g>
+</svg>

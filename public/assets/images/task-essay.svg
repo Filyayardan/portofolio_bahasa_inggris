@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="ebg" cx="30%" cy="30%" r="90%">
+      <stop offset="0" stop-color="#342f27"/>
+      <stop offset="1" stop-color="#10100e"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#ebg)"/>
+  <g stroke="#c7a86b" opacity=".2">
+    <path d="M80 80h1040v640H80z"/>
+    <path d="M80 130h1040M80 670h1040"/>
+    <path d="M720 130v540"/>
+  </g>
+  <text x="120" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="340" fill="#c7a86b" opacity=".18">A</text>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#e8dcc4">
+    <text x="120" y="270" font-size="60" font-style="italic">The Poetry</text>
+    <text x="120" y="330" font-size="60">of Design.</text>
+  </g>
+  <g font-family="'Segoe UI', Arial, sans-serif" fill="#8f8068">
+    <text x="120" y="390" font-size="13" letter-spacing="5">AN ESSAY ON FORM, FEELING &amp; FUNCTION</text>
+  </g>
+  <g fill="#c7a86b" opacity=".55">
+    <rect x="120" y="430" width="100" height="1"/>
+    <rect x="760" y="185" width="300" height="1"/>
+    <rect x="760" y="225" width="270" height="1"/>
+    <rect x="760" y="265" width="290" height="1"/>
+    <rect x="760" y="305" width="210" height="1"/>
+    <rect x="760" y="420" width="300" height="1"/>
+    <rect x="760" y="460" width="250" height="1"/>
+    <rect x="760" y="500" width="280" height="1"/>
+    <rect x="760" y="540" width="180" height="1"/>
+  </g>
+  <g font-family="'Segoe UI', Arial, sans-serif" fill="#cbb98e">
+    <text x="1120" y="112" text-anchor="end" font-size="15" letter-spacing="6">03 — 04</text>
+    <text x="1120" y="740" text-anchor="end" font-size="13" letter-spacing="5" fill="#8c7d62">ESSAY / 2026</text>
+  </g>
+  <text x="80" y="112" font-family="'Segoe UI', Arial, sans-serif" font-size="15" letter-spacing="8" fill="#cbb98e">WRITING / 2026</text>
+</svg>
