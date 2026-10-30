@@ -159,7 +159,7 @@
                                 <span class="admin-upload-box__icon">{!! \App\Support\Icons::svg('upload') !!}</span>
                                 <div>
                                     <strong>Unggah video</strong>
-                                    <small>MP4, WebM, atau MOV — maks. 100 MB.</small>
+                                    <small>MP4, WebM, atau MOV.</small>
                                     <span class="admin-file-name" data-file-name></span>
                                 </div>
                                 <input type="file" id="video_file" name="video_file" accept="video/mp4,video/webm,video/quicktime" data-file-input>
@@ -191,7 +191,7 @@
                                 <span class="admin-upload-box__icon">{!! \App\Support\Icons::svg('upload') !!}</span>
                                 <div>
                                     <strong>Unggah dokumen</strong>
-                                    <small>PDF, DOC, DOCX, PPT, PPTX, atau TXT — maks. 20 MB.</small>
+                                    <small>PDF, DOC, DOCX, PPT, PPTX, atau TXT.</small>
                                     <span class="admin-file-name" data-file-name></span>
                                 </div>
                                 <input type="file" id="document_file" name="document_file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" data-file-input>
