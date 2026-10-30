@@ -23,8 +23,8 @@
                         <div class="skill-row__content">
                             <div class="skill-row__top">
                                 <div>
-                                    <h3>{{ $skill->name }}</h3>
-                                    <span>{{ $skill->category ?: trans('skills.category') }}</span>
+                                    <h3>{{ $skill->localized('name') }}</h3>
+                                    <span>{{ $skill->localized('category') ?: trans('skills.category') }}</span>
                                 </div>
                                 <span class="skill-row__percent">{{ $skill->level }}<small>%</small></span>
                             </div>

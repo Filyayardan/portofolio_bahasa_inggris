@@ -51,9 +51,21 @@
                         </div>
 
                         <div class="admin-field">
+                            <label for="name_en">Nama keahlian (English)</label>
+                            <input type="text" id="name_en" name="name_en" value="{{ old('name_en', $skill->name_en) }}" maxlength="120">
+                            @error('name_en')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
                             <label for="category_id">Kategori</label>
                             <input type="text" id="category_id" name="category" value="{{ old('category', $skill->category) }}" placeholder="Data, Desain, Web…" maxlength="100">
                             @error('category')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
+                            <label for="category_en">Kategori (English)</label>
+                            <input type="text" id="category_en" name="category_en" value="{{ old('category_en', $skill->category_en) }}" maxlength="100">
+                            @error('category_en')<small>{{ $message }}</small>@enderror
                         </div>
                     </div>
 

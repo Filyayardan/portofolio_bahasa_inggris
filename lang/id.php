@@ -54,7 +54,7 @@ return [
     'skills.list_label' => 'Daftar keahlian',
     'skills.level' => 'Tingkat',
 
-    'tasks.label' => '03 — Karya & Tugas',
+    'tasks.label' => '03 — Tugas',
     'tasks.heading' => 'Kumpulan karya yang dipilih dengan cermat.',
     'tasks.intro' => 'Eksplorasi ide dalam berbagai bentuk — video, dokumen, dan tulisan. Setiap karya adalah bagian dari proses belajar dan bertumbuh.',
     'tasks.all' => 'Semua',

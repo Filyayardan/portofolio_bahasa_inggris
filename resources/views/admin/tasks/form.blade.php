@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', $heading)
-@section('kicker', 'Editor Karya')
+@section('kicker', 'Editor Tugas')
 
 @php
     $types = [
@@ -18,7 +18,7 @@
         <div>
             <a class="admin-back-link" href="{{ route('admin.tasks.index') }}">
                 {!! \App\Support\Icons::svg('arrow-left') !!}
-                Kembali ke daftar karya
+                Kembali ke daftar tugas
             </a>
             <h2>{{ $heading }}</h2>
             <p>{{ $subheading }}</p>
@@ -27,7 +27,7 @@
             <a class="admin-button admin-button--ghost" href="{{ route('admin.tasks.index') }}">Batal</a>
             <button class="admin-button admin-button--gold" type="submit" form="taskForm">
                 {!! \App\Support\Icons::svg('check') !!}
-                Simpan karya
+                Simpan tugas
             </button>
         </div>
     </div>
@@ -44,14 +44,20 @@
                     <div class="admin-card__head">
                         <div>
                             <span class="admin-card__kicker">Detail utama</span>
-                            <h3>Informasi karya</h3>
+                            <h3>Informasi tugas</h3>
                         </div>
                     </div>
 
                     <div class="admin-field">
-                        <label for="title">Judul karya</label>
+                        <label for="title">Judul tugas</label>
                         <input type="text" id="title" name="title" value="{{ old('title', $task->title) }}" placeholder="Contoh: Analisis tren penjualan kuartal IV" required maxlength="160">
                         @error('title')<small>{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="title_en">Judul tugas (English)</label>
+                        <input type="text" id="title_en" name="title_en" value="{{ old('title_en', $task->title_en) }}" maxlength="160">
+                        @error('title_en')<small>{{ $message }}</small>@enderror
                     </div>
 
                     <div class="admin-form-grid">
@@ -66,18 +72,36 @@
                             <input type="text" id="category" name="category" value="{{ old('category', $task->category) }}" placeholder="Data, Desain, Riset…" maxlength="100">
                             @error('category')<small>{{ $message }}</small>@enderror
                         </div>
+
+                        <div class="admin-field">
+                            <label for="category_en">Kategori (English)</label>
+                            <input type="text" id="category_en" name="category_en" value="{{ old('category_en', $task->category_en) }}" maxlength="100">
+                            @error('category_en')<small>{{ $message }}</small>@enderror
+                        </div>
                     </div>
 
                     <div class="admin-field" style="margin-top: 18px">
                         <label for="description">Ringkasan <span>Maks. 1200 karakter</span></label>
-                        <textarea id="description" name="description" rows="3" maxlength="1200" placeholder="Deskripsi singkat yang tampil pada kartu karya.">{{ old('description', $task->description) }}</textarea>
+                        <textarea id="description" name="description" rows="3" maxlength="1200" placeholder="Deskripsi singkat yang tampil pada kartu tugas.">{{ old('description', $task->description) }}</textarea>
                         @error('description')<small>{{ $message }}</small>@enderror
                     </div>
 
                     <div class="admin-field">
+                        <label for="description_en">Ringkasan (English) <span>Max. 1200 characters</span></label>
+                        <textarea id="description_en" name="description_en" rows="3" maxlength="1200">{{ old('description_en', $task->description_en) }}</textarea>
+                        @error('description_en')<small>{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="admin-field">
                         <label for="content">Konten tambahan <span>Opsional</span></label>
-                        <textarea id="content" name="content" rows="7" maxlength="20000" placeholder="Tulis studi kasus, catatan proses, atau detail lain yang muncul di modal karya.">{{ old('content', $task->content) }}</textarea>
+                        <textarea id="content" name="content" rows="7" maxlength="20000" placeholder="Tulis studi kasus, catatan proses, atau detail lain yang muncul di modal tugas.">{{ old('content', $task->content) }}</textarea>
                         @error('content')<small>{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="content_en">Konten tambahan (English) <span>Optional</span></label>
+                        <textarea id="content_en" name="content_en" rows="7" maxlength="20000">{{ old('content_en', $task->content_en) }}</textarea>
+                        @error('content_en')<small>{{ $message }}</small>@enderror
                     </div>
                 </section>
 
@@ -85,7 +109,7 @@
                     <div class="admin-card__head">
                         <div>
                             <span class="admin-card__kicker">Tipe konten</span>
-                            <h3>Jenis karya</h3>
+                            <h3>Jenis tugas</h3>
                         </div>
                         <span class="admin-card__hint">Pilih satu</span>
                     </div>
@@ -188,7 +212,7 @@
                     <div class="admin-card__head">
                         <div>
                             <span class="admin-card__kicker">Visual</span>
-                            <h3>Thumbnail karya</h3>
+                            <h3>Thumbnail tugas</h3>
                         </div>
                         <span class="admin-card__hint">Rasio 16:10</span>
                     </div>
@@ -239,8 +263,8 @@
                         <input type="checkbox" name="featured" value="1" @checked(old('featured', $task->featured))>
                         <span class="admin-switch__track"><i></i></span>
                         <span>
-                            <strong>Karya pilihan</strong>
-                            <small>Tampilkan label unggulan pada kartu karya.</small>
+                            <strong>Tugas pilihan</strong>
+                            <small>Tampilkan label unggulan pada kartu tugas.</small>
                         </span>
                     </label>
 
@@ -261,7 +285,7 @@
                     <div class="admin-editor-actions">
                         <button class="admin-button admin-button--gold admin-button--full" type="submit">
                             {!! \App\Support\Icons::svg('check') !!}
-                            {{ $method === 'POST' ? 'Simpan karya' : 'Perbarui karya' }}
+                            {{ $method === 'POST' ? 'Simpan tugas' : 'Perbarui tugas' }}
                         </button>
                         <a class="admin-button admin-button--ghost admin-button--full" href="{{ route('admin.tasks.index') }}">Batal</a>
                     </div>

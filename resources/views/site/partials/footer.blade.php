@@ -11,11 +11,13 @@
     <div class="container">
         <div class="site-footer__top">
             <div class="site-footer__brand">
-                <span class="site-footer__mark">{{ $profile->initials() }}</span>
+                <span class="site-footer__mark">
+                    <img src="{{ $profile->photoUrl() ?: asset('assets/images/portrait-placeholder.svg') }}" alt="" aria-hidden="true">
+                </span>
                 <div>
                     <strong>{{ $profile->name }}</strong>
                     <span>{{ trans('footer.brand_line') }}</span>
-                    <span>{{ $profile->role }}</span>
+                    <span>{{ $profile->localized('role') }}</span>
                 </div>
             </div>
 
@@ -34,7 +36,7 @@
                 @if ($profile->phone)
                     <a href="tel:{{ preg_replace('/[^0-9+]/', '', $profile->phone) }}">{{ $profile->phone }}</a>
                 @endif
-                <span>{{ $profile->location }}</span>
+                <span>{{ $profile->localized('location') }}</span>
             </div>
 
             <div class="site-footer__clock">

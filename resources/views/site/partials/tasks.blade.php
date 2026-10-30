@@ -44,7 +44,9 @@
                 @php
                     $payload = \App\Support\Portfolio::taskPayload($task);
                     $number = str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT);
-                    $initial = mb_strtoupper(mb_substr($task->title, 0, 1));
+                    $localizedTitle = $task->localized('title');
+                    $localizedCategory = $task->localized('category');
+                    $initial = mb_strtoupper(mb_substr($localizedTitle, 0, 1));
                 @endphp
 
                 <article class="task-card reveal" data-type="{{ $task->type }}" style="--delay: {{ ($loop->index % 2) * 80 }}ms">
@@ -52,11 +54,11 @@
                         class="task-card__button"
                         type="button"
                         data-task="{{ json_encode($payload, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}"
-                        aria-label="{{ trans('tasks.open') }}: {{ $task->title }}"
+                        aria-label="{{ trans('tasks.open') }}: {{ $localizedTitle }}"
                     >
                         <div class="task-card__media {{ $task->thumbnail ? '' : 'task-card__media--empty' }}">
                             @if ($task->thumbnail)
-                                <img src="{{ $task->thumbnail_url }}" alt="{{ $task->title }}" loading="lazy">
+                                <img src="{{ $task->thumbnail_url }}" alt="{{ $localizedTitle }}" loading="lazy">
                             @else
                                 <div class="task-card__abstract"><span>{{ $initial }}</span></div>
                             @endif
@@ -84,11 +86,11 @@
 
                         <div class="task-card__body">
                             <div class="task-card__meta">
-                                <span>{{ $task->category ?: $task->type_label }}</span>
+                                <span>{{ $localizedCategory ?: $task->type_label }}</span>
                                 <span>{{ $task->date_label }}</span>
                             </div>
 
-                            <h3>{{ $task->title }}</h3>
+                            <h3>{{ $localizedTitle }}</h3>
                             <p>{{ $task->excerpt }}</p>
 
                             <span class="task-card__link">

@@ -16,7 +16,7 @@
                     <img src="{{ $photo }}" alt="{{ $profile->name }}" loading="lazy">
                     <figcaption>
                         <span>{{ $profile->name }}</span>
-                        <span>{{ $profile->location }}</span>
+                        <span>{{ $profile->localized('location') }}</span>
                     </figcaption>
                 </figure>
 
@@ -29,7 +29,7 @@
             <div class="about__content reveal" style="--delay: 90ms">
                 <div class="about__story">
                     <span class="mini-label">{{ trans('about.story') }}</span>
-                    <p class="about__lead">{{ $profile->about_lead }}</p>
+                    <p class="about__lead">{{ $profile->localized('about_lead') }}</p>
 
                     @forelse ($story as $paragraph)
                         <p>{{ $paragraph }}</p>
@@ -44,14 +44,14 @@
                     </span>
                     <div>
                         <span class="mini-label">{{ trans('about.focus') }}</span>
-                        <p>{{ $profile->focus_text ?: trans('about.focus_text') }}</p>
+                        <p>{{ $profile->localized('focus_text') ?: trans('about.focus_text') }}</p>
                     </div>
                 </div>
 
                 <div class="about__meta">
                     <div>
                         <span class="mini-label">{{ trans('about.location') }}</span>
-                        <p>{{ $profile->location ?: '—' }}</p>
+                        <p>{{ $profile->localized('location') ?: '—' }}</p>
                     </div>
 
                     <div>
@@ -98,7 +98,7 @@
                 <div class="about__signature">
                     <div>
                         <span class="mini-label">{{ trans('about.signature') }}</span>
-                        <span class="signature">{{ $profile->signature ?: $profile->name }}</span>
+                        <span class="signature">{{ $profile->localized('signature') ?: $profile->name }}</span>
                     </div>
 
                     @if ($socials)

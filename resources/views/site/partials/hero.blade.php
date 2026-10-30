@@ -22,8 +22,8 @@
             </h1>
 
             <div class="hero__details">
-                <span class="hero__role">{{ $profile->role }}</span>
-                <p class="hero__tagline">{{ $profile->tagline }}</p>
+                <span class="hero__role">{{ $profile->localized('role') }}</span>
+                <p class="hero__tagline">{{ $profile->localized('tagline') }}</p>
 
                 <div class="hero__actions">
                     <a class="button button--gold" href="#tasks">
@@ -38,10 +38,10 @@
 
                 <div class="hero__availability">
                     <span class="status-dot" aria-hidden="true"></span>
-                    <span>{{ $profile->availability ?: trans('hero.available') }}</span>
-                    @if ($profile->location)
+                    <span>{{ $profile->localized('availability') ?: trans('hero.available') }}</span>
+                    @if ($profile->localized('location'))
                         <span class="hero__availability-sep" aria-hidden="true"></span>
-                        <span>{{ $profile->location }}</span>
+                        <span>{{ $profile->localized('location') }}</span>
                     @endif
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 </div>
 
                 <figcaption class="portrait__caption">
-                    <span>{{ $profile->role }}</span>
+                    <span>{{ $profile->localized('role') }}</span>
                     <span>{{ trans('hero.badge') }}</span>
                 </figcaption>
 

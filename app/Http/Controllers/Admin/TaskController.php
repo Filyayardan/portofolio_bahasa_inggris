@@ -38,8 +38,8 @@ class TaskController extends Controller
             'task' => new Task(['type' => 'video', 'published_at' => now()]),
             'action' => route('admin.tasks.store'),
             'method' => 'POST',
-            'heading' => 'Tambah Karya',
-            'subheading' => 'Susun karya baru untuk ditampilkan pada portofolio publik.',
+            'heading' => 'Tambah Tugas',
+            'subheading' => 'Susun tugas baru untuk ditampilkan pada portofolio publik.',
         ]);
     }
 
@@ -51,7 +51,7 @@ class TaskController extends Controller
         $this->fill($task, $request, $data);
         $task->save();
 
-        return redirect()->route('admin.tasks.index')->with('success', 'Karya berhasil ditambahkan.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Tugas berhasil ditambahkan.');
     }
 
     public function edit(Task $task)
@@ -60,8 +60,8 @@ class TaskController extends Controller
             'task' => $task,
             'action' => route('admin.tasks.update', $task),
             'method' => 'PUT',
-            'heading' => 'Ubah Karya',
-            'subheading' => 'Perbarui detail, media, dan status publikasi karya.',
+            'heading' => 'Ubah Tugas',
+            'subheading' => 'Perbarui detail, media, dan status publikasi tugas.',
         ]);
     }
 
@@ -72,7 +72,7 @@ class TaskController extends Controller
         $this->fill($task, $request, $data);
         $task->save();
 
-        return redirect()->route('admin.tasks.index')->with('success', 'Karya berhasil diperbarui.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Tugas berhasil diperbarui.');
     }
 
     public function destroy(Task $task)
@@ -86,18 +86,22 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return redirect()->route('admin.tasks.index')->with('success', 'Karya berhasil dihapus.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Tugas berhasil dihapus.');
     }
 
     private function validated(Request $request, ?Task $task = null): array
     {
         return $request->validate([
             'title' => ['required', 'string', 'max:160'],
+            'title_en' => ['required', 'string', 'max:160'],
             'slug' => ['nullable', 'string', 'max:180'],
             'type' => ['required', Rule::in(Task::TYPES)],
             'category' => ['nullable', 'string', 'max:100'],
+            'category_en' => ['nullable', 'required_with:category', 'string', 'max:100'],
             'description' => ['nullable', 'string', 'max:1200'],
+            'description_en' => ['nullable', 'required_with:description', 'string', 'max:1200'],
             'content' => ['nullable', 'string', 'max:20000'],
+            'content_en' => ['nullable', 'required_with:content', 'string', 'max:20000'],
             'thumbnail' => ['nullable', 'file', 'mimes:jpg,jpeg,png,webp,svg', 'max:4096'],
             'video_kind' => ['nullable', Rule::in(['embed', 'link', 'file'])],
             'video_url' => ['nullable', 'string', 'max:1000'],
@@ -112,11 +116,15 @@ class TaskController extends Controller
     private function fill(Task $task, Request $request, array $data): void
     {
         $task->title = $data['title'];
+        $task->title_en = $data['title_en'] ?? null;
         $task->slug = $this->uniqueSlug($data['slug'] ?? $data['title'], $task);
         $task->type = $data['type'];
         $task->category = $data['category'] ?? null;
+        $task->category_en = $data['category_en'] ?? null;
         $task->description = $data['description'] ?? null;
+        $task->description_en = $data['description_en'] ?? null;
         $task->content = $data['content'] ?? null;
+        $task->content_en = $data['content_en'] ?? null;
         $task->featured = $request->boolean('featured');
         $task->published_at = $data['published_at'] ?? now()->toDateString();
         $task->sort_order = $data['sort_order'] ?? ((int) Task::max('sort_order') + 1);
@@ -167,7 +175,7 @@ class TaskController extends Controller
 
     private function uniqueSlug(string $value, Task $task): string
     {
-        $base = Str::slug($value) ?: 'karya';
+        $base = Str::slug($value) ?: 'tugas';
         $slug = $base;
         $index = 2;
 

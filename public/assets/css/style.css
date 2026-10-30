@@ -241,6 +241,17 @@ body.is-loaded .preloader {
     font-size: 27px;
     letter-spacing: 0.04em;
     animation: preloader-pulse 1.8s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.preloader__mark img,
+.brand__mark img,
+.site-footer__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
 }
 
 .preloader__line {
@@ -387,6 +398,7 @@ body.is-loaded .preloader {
     place-items: center;
     border: 1px solid rgba(199, 168, 107, 0.55);
     border-radius: 50%;
+    overflow: hidden;
     color: var(--gold);
     font-family: var(--serif);
     font-size: 16px;
@@ -2533,6 +2545,7 @@ body.is-loaded .preloader {
     place-items: center;
     border: 1px solid var(--line);
     border-radius: 50%;
+    overflow: hidden;
     color: var(--gold);
     font-family: var(--serif);
     font-size: 19px;

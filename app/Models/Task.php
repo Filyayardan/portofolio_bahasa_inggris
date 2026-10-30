@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Portfolio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -15,6 +16,15 @@ class Task extends Model
         'file_size' => 'integer',
         'sort_order' => 'integer',
     ];
+
+    public function localized(string $attribute): mixed
+    {
+        $englishAttribute = $attribute.'_en';
+
+        return app()->getLocale() === 'en' && filled($this->{$englishAttribute} ?? null)
+            ? $this->{$englishAttribute}
+            : $this->{$attribute};
+    }
 
     public const TYPES = ['video', 'document', 'text'];
 
@@ -54,15 +64,17 @@ class Task extends Model
 
     public function getVideoUrlAttribute(): ?string
     {
-        if (! $this->video_url) {
+        $videoUrl = $this->attributes['video_url'] ?? null;
+
+        if (! $videoUrl) {
             return null;
         }
 
-        if ($this->video_kind === 'file' && ! Str::startsWith($this->video_url, ['http://', 'https://'])) {
-            return asset($this->video_url);
+        if ($this->video_kind === 'file' && ! Str::startsWith($videoUrl, ['http://', 'https://'])) {
+            return asset($videoUrl);
         }
 
-        return $this->video_url;
+        return $videoUrl;
     }
 
     public function getDateLabelAttribute(): ?string
@@ -72,14 +84,14 @@ class Task extends Model
 
     public function getExcerptAttribute(): string
     {
-        return Str::limit((string) $this->description, 150);
+        return Str::limit((string) $this->localized('description'), 150);
     }
 
     public function getFileInfoAttribute(): ?string
     {
         $parts = array_filter([
             $this->file_extension ? mb_strtoupper($this->file_extension) : null,
-            \App\Support\Portfolio::formatBytes($this->file_size),
+            Portfolio::formatBytes($this->file_size),
         ]);
 
         return $parts ? implode(' • ', $parts) : null;

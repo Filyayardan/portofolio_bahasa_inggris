@@ -67,7 +67,9 @@ class SkillController extends Controller
     {
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
+            'name_en' => ['required', 'string', 'max:120'],
             'category' => ['nullable', 'string', 'max:100'],
+            'category_en' => ['nullable', 'required_with:category', 'string', 'max:100'],
             'level' => ['required', 'integer', 'min:0', 'max:100'],
             'sort_order' => ['nullable', 'integer', 'min:0', 'max:9999'],
         ]);

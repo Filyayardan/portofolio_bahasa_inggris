@@ -10,7 +10,9 @@
 
 <header class="site-header" id="siteHeader">
     <a class="brand" href="{{ route('home') }}" aria-label="{{ $profile->name }}">
-        <span class="brand__mark">{{ $profile->initials() }}</span>
+        <span class="brand__mark">
+            <img src="{{ $profile->photoUrl() ?: asset('assets/images/portrait-placeholder.svg') }}" alt="" aria-hidden="true">
+        </span>
         <span class="brand__text">
             <strong>{{ $profile->name }}</strong>
             <small>{{ trans('brand.small') }}</small>
@@ -35,8 +37,7 @@
             {!! \App\Support\Icons::svg('arrow-up-right') !!}
         </a>
 
-        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
-            <span class="sr-only">{{ trans('nav.menu') }}</span>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="{{ trans('nav.menu') }}">
             <span></span>
             <span></span>
         </button>
@@ -45,7 +46,6 @@
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu__top">
-        <span class="mobile-menu__label">{{ trans('nav.menu') }}</span>
         <button class="mobile-menu__close" id="menuClose" type="button" aria-label="{{ trans('nav.close') }}">
             {!! \App\Support\Icons::svg('close') !!}
         </button>

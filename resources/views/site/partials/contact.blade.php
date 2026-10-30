@@ -40,7 +40,7 @@
 
                 <div class="contact__availability">
                     <span class="status-dot" aria-hidden="true"></span>
-                    {{ $profile->availability ?: trans('hero.available') }}
+                    {{ $profile->localized('availability') ?: trans('hero.available') }}
                 </div>
             </div>
 

@@ -22,7 +22,7 @@
         <div class="admin-page-actions">
             <a class="admin-button admin-button--gold" href="{{ route('admin.tasks.create') }}">
                 {!! \App\Support\Icons::svg('plus') !!}
-                Karya baru
+                Tugas baru
             </a>
         </div>
     </div>
@@ -34,7 +34,7 @@
                 <span class="admin-stat__trend">{{ $featuredCount }} pilihan</span>
             </div>
             <strong>{{ $tasksCount }}</strong>
-            <span class="admin-stat__label">Total karya</span>
+            <span class="admin-stat__label">Total tugas</span>
             <div class="admin-stat__line"><span style="width: 100%"></span></div>
         </a>
 
@@ -73,7 +73,7 @@
         <section class="admin-card">
             <div class="admin-card__head">
                 <div>
-                    <span class="admin-card__kicker">Karya terbaru</span>
+                    <span class="admin-card__kicker">Tugas terbaru</span>
                     <h3>Koleksi terkini</h3>
                 </div>
                 <a class="admin-link" href="{{ route('admin.tasks.index') }}">
@@ -85,16 +85,16 @@
             @if ($recentTasks->isEmpty())
                 <div class="admin-empty">
                     {!! \App\Support\Icons::svg('layers') !!}
-                    <h4>Belum ada karya</h4>
-                    <p>Mulai dengan menambahkan karya pertama Anda ke portofolio.</p>
-                    <a class="admin-button admin-button--gold admin-button--small" href="{{ route('admin.tasks.create') }}">Tambah karya</a>
+                    <h4>Belum ada tugas</h4>
+                    <p>Mulai dengan menambahkan tugas pertama Anda ke portofolio.</p>
+                    <a class="admin-button admin-button--gold admin-button--small" href="{{ route('admin.tasks.create') }}">Tambah tugas</a>
                 </div>
             @else
                 <div class="admin-table-wrap">
                     <table class="admin-table">
                         <thead>
                             <tr>
-                                <th>Karya</th>
+                                <th>Tugas</th>
                                 <th>Tipe</th>
                                 <th>Status</th>
                                 <th>Tanggal</th>
@@ -147,7 +147,7 @@
                 <div class="admin-card__head">
                     <div>
                         <span class="admin-card__kicker">Komposisi</span>
-                        <h3>Jenis karya</h3>
+                        <h3>Jenis tugas</h3>
                     </div>
                     <span class="admin-card__hint">{{ $tasksCount }} total</span>
                 </div>
@@ -156,7 +156,7 @@
                     <div class="admin-donut" style="{{ $donutStyle }}">
                         <div>
                             <strong>{{ $tasksCount }}</strong>
-                            <span>Karya</span>
+                            <span>Tugas</span>
                         </div>
                     </div>
 
@@ -219,7 +219,7 @@
         <a class="admin-quick-action" href="{{ route('admin.tasks.create') }}">
             {!! \App\Support\Icons::svg('plus') !!}
             <span>
-                <strong>Tambah karya</strong>
+                <strong>Tambah tugas</strong>
                 <small>Video, dokumen, atau tulisan</small>
             </span>
             {!! \App\Support\Icons::svg('arrow-right') !!}

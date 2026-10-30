@@ -56,11 +56,7 @@
 
                     <div class="admin-profile-media">
                         <span class="admin-profile-photo">
-                            @if ($photo)
-                                <img src="{{ $photo }}" alt="{{ $profile->name }}">
-                            @else
-                                <span>{{ $profile->initials() }}</span>
-                            @endif
+                            <img src="{{ $photo ?: asset('assets/images/portrait-placeholder.svg') }}" alt="{{ $profile->name }}">
                         </span>
 
                         <div class="admin-profile-media__info">
@@ -84,6 +80,12 @@
                         </div>
 
                         <div class="admin-field">
+                            <label for="role_en">Peran / profesi (English)</label>
+                            <input type="text" id="role_en" name="role_en" value="{{ old('role_en', $profile->role_en) }}" maxlength="160">
+                            @error('role_en')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
                             <label for="email">Email publik</label>
                             <input type="email" id="email" name="email" value="{{ old('email', $profile->email) }}" placeholder="nama@email.com" maxlength="160">
                             @error('email')<small>{{ $message }}</small>@enderror
@@ -102,9 +104,21 @@
                         </div>
 
                         <div class="admin-field">
+                            <label for="location_en">Lokasi (English)</label>
+                            <input type="text" id="location_en" name="location_en" value="{{ old('location_en', $profile->location_en) }}" maxlength="160">
+                            @error('location_en')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
                             <label for="availability">Status ketersediaan</label>
                             <input type="text" id="availability" name="availability" value="{{ old('availability', $profile->availability) }}" placeholder="Terbuka untuk proyek baru" maxlength="120">
                             @error('availability')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
+                            <label for="availability_en">Status ketersediaan (English)</label>
+                            <input type="text" id="availability_en" name="availability_en" value="{{ old('availability_en', $profile->availability_en) }}" maxlength="120">
+                            @error('availability_en')<small>{{ $message }}</small>@enderror
                         </div>
                     </div>
 
@@ -112,6 +126,12 @@
                         <label for="tagline">Tagline <span>Maks. 300 karakter</span></label>
                         <textarea id="tagline" name="tagline" rows="2" maxlength="300" placeholder="Ringkasan singkat yang tampil di bawah nama.">{{ old('tagline', $profile->tagline) }}</textarea>
                         @error('tagline')<small>{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="tagline_en">Tagline (English) <span>Max. 300 characters</span></label>
+                        <textarea id="tagline_en" name="tagline_en" rows="2" maxlength="300">{{ old('tagline_en', $profile->tagline_en) }}</textarea>
+                        @error('tagline_en')<small>{{ $message }}</small>@enderror
                     </div>
                 </section>
 
@@ -130,9 +150,21 @@
                     </div>
 
                     <div class="admin-field">
+                        <label for="about_lead_en">Paragraf pembuka (English) <span>Max. 600 characters</span></label>
+                        <textarea id="about_lead_en" name="about_lead_en" rows="3" maxlength="600">{{ old('about_lead_en', $profile->about_lead_en) }}</textarea>
+                        @error('about_lead_en')<small>{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="admin-field">
                         <label for="about_story">Cerita lengkap <span>Pisahkan paragraf dengan baris baru</span></label>
                         <textarea id="about_story" name="about_story" rows="8" maxlength="6000" placeholder="Tulis cerita perjalanan, pendekatan kerja, atau hal yang Anda sukai.">{{ old('about_story', $profile->about_story) }}</textarea>
                         @error('about_story')<small>{{ $message }}</small>@enderror
+                    </div>
+
+                    <div class="admin-field">
+                        <label for="about_story_en">Cerita lengkap (English) <span>Separate paragraphs with a new line</span></label>
+                        <textarea id="about_story_en" name="about_story_en" rows="8" maxlength="6000">{{ old('about_story_en', $profile->about_story_en) }}</textarea>
+                        @error('about_story_en')<small>{{ $message }}</small>@enderror
                     </div>
 
                     <div class="admin-form-grid">
@@ -143,9 +175,21 @@
                         </div>
 
                         <div class="admin-field">
+                            <label for="focus_text_en">Current focus (English)</label>
+                            <textarea id="focus_text_en" name="focus_text_en" rows="3" maxlength="400">{{ old('focus_text_en', $profile->focus_text_en) }}</textarea>
+                            @error('focus_text_en')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
                             <label for="signature">Tanda tangan</label>
                             <input type="text" id="signature" name="signature" value="{{ old('signature', $profile->signature) }}" placeholder="Nama atau sapaan penutup" maxlength="120">
                             @error('signature')<small>{{ $message }}</small>@enderror
+                        </div>
+
+                        <div class="admin-field">
+                            <label for="signature_en">Signature (English)</label>
+                            <input type="text" id="signature_en" name="signature_en" value="{{ old('signature_en', $profile->signature_en) }}" maxlength="120">
+                            @error('signature_en')<small>{{ $message }}</small>@enderror
                         </div>
                     </div>
                 </section>
@@ -179,7 +223,7 @@
                         </div>
 
                         <div class="admin-field">
-                            <label for="works_count">Jumlah karya</label>
+                            <label for="works_count">Jumlah tugas</label>
                             <input type="number" id="works_count" name="works_count" value="{{ old('works_count', $profile->works_count) }}" min="0" max="99999">
                             @error('works_count')<small>{{ $message }}</small>@enderror
                         </div>
@@ -210,7 +254,9 @@
             <aside class="admin-editor-side">
                 <div class="admin-card admin-sticky-card">
                     <div class="admin-account-head">
-                        <span class="admin-account-avatar">{{ $profile->initials() }}</span>
+                        <span class="admin-account-avatar">
+                            <img src="{{ $photo ?: asset('assets/images/portrait-placeholder.svg') }}" alt="" aria-hidden="true">
+                        </span>
                         <strong>{{ $profile->name }}</strong>
                         <span>{{ $profile->role ?: 'Admin situs' }}</span>
                     </div>

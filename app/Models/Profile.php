@@ -16,6 +16,15 @@ class Profile extends Model
         'works_count' => 'integer',
     ];
 
+    public function localized(string $attribute): mixed
+    {
+        $englishAttribute = $attribute.'_en';
+
+        return app()->getLocale() === 'en' && filled($this->{$englishAttribute} ?? null)
+            ? $this->{$englishAttribute}
+            : $this->{$attribute};
+    }
+
     public function photoUrl(): ?string
     {
         return $this->photo ? asset($this->photo) : null;
@@ -50,7 +59,7 @@ class Profile extends Model
 
     public function storyParagraphs(): array
     {
-        return collect(preg_split('/\n+/', (string) $this->about_story))
+        return collect(preg_split('/\n+/', (string) $this->localized('about_story')))
             ->map(fn ($paragraph) => trim($paragraph))
             ->filter()
             ->values()

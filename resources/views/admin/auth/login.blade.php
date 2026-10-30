@@ -1,4 +1,7 @@
-@php $profile = \App\Support\Portfolio::profile(); @endphp
+@php
+    $profile = \App\Support\Portfolio::profile();
+    $profilePhoto = $profile->photoUrl() ?: asset('assets/images/portrait-placeholder.svg');
+@endphp
 
 <!DOCTYPE html>
 <html lang="id">
@@ -18,7 +21,9 @@
     <main class="login-shell">
         <section class="login-visual">
             <div class="login-visual__grid" aria-hidden="true"></div>
-            <a class="login-brand" href="{{ route('home') }}">{{ $profile->initials() }}</a>
+            <a class="login-brand" href="{{ route('home') }}" aria-label="{{ $profile->name }}">
+                <img src="{{ $profilePhoto }}" alt="" aria-hidden="true">
+            </a>
 
             <div class="login-visual__content">
                 <span class="admin-kicker">Studio Panel</span>
@@ -26,7 +31,7 @@
                     Ruang kerja
                     <em>{{ $profile->name }}</em>
                 </h1>
-                <p>Kelola karya, keahlian, pesan masuk, dan seluruh isi portofolio dari satu tempat.</p>
+                <p>Kelola tugas, keahlian, pesan masuk, dan seluruh isi portofolio dari satu tempat.</p>
             </div>
 
             <div class="login-visual__footer">

@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 
-@section('title', 'Karya & Tugas')
+@section('title', 'Tugas')
 @section('kicker', 'Manajemen Konten')
 
 @section('content')
     <div class="admin-page-head">
         <div>
             <span class="admin-page-kicker">Koleksi portofolio</span>
-            <h2>Karya &amp; tugas</h2>
-            <p>Kelola video, dokumen, dan tulisan yang tampil pada bagian karya di situs publik.</p>
+            <h2>Tugas</h2>
+            <p>Kelola video, dokumen, dan tulisan yang tampil pada bagian tugas di situs publik.</p>
         </div>
         <div class="admin-page-actions">
             <a class="admin-button admin-button--gold" href="{{ route('admin.tasks.create') }}">
                 {!! \App\Support\Icons::svg('plus') !!}
-                Tambah karya
+                Tambah tugas
             </a>
         </div>
     </div>
@@ -34,23 +34,23 @@
             </a>
         </div>
 
-        <span class="admin-muted">{{ $tasks->count() }} karya ditampilkan</span>
+        <span class="admin-muted">{{ $tasks->count() }} tugas ditampilkan</span>
     </div>
 
     <div class="admin-card" style="padding: 4px 26px">
         @if ($tasks->isEmpty())
             <div class="admin-empty">
                 {!! \App\Support\Icons::svg('layers') !!}
-                <h4>Belum ada karya</h4>
-                <p>Tambahkan karya pertama Anda — bisa berupa video, unggahan dokumen, atau tulisan.</p>
-                <a class="admin-button admin-button--gold admin-button--small" href="{{ route('admin.tasks.create') }}">Tambah karya</a>
+                <h4>Belum ada tugas</h4>
+                <p>Tambahkan tugas pertama Anda — bisa berupa video, unggahan dokumen, atau tulisan.</p>
+                <a class="admin-button admin-button--gold admin-button--small" href="{{ route('admin.tasks.create') }}">Tambah tugas</a>
             </div>
         @else
             <div class="admin-table-wrap">
                 <table class="admin-table">
                     <thead>
                         <tr>
-                            <th>Karya</th>
+                            <th>Tugas</th>
                             <th>Tipe</th>
                             <th>Status</th>
                             <th>Urutan</th>
@@ -92,7 +92,7 @@
                                         <a class="admin-icon-button" href="{{ route('admin.tasks.edit', $task) }}" aria-label="Ubah {{ $task->title }}">
                                             {!! \App\Support\Icons::svg('edit') !!}
                                         </a>
-                                        <form method="POST" action="{{ route('admin.tasks.destroy', $task) }}" data-confirm="Hapus karya “{{ $task->title }}”? Tindakan ini tidak dapat dibatalkan.">
+                                        <form method="POST" action="{{ route('admin.tasks.destroy', $task) }}" data-confirm="Hapus tugas “{{ $task->title }}”? Tindakan ini tidak dapat dibatalkan.">
                                             @csrf
                                             @method('DELETE')
                                             <button class="admin-icon-button admin-icon-button--danger" type="submit" aria-label="Hapus {{ $task->title }}">

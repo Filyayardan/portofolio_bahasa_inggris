@@ -1,5 +1,6 @@
 @php
     $profile = \App\Support\Portfolio::profile();
+    $profilePhoto = $profile->photoUrl() ?: asset('assets/images/portrait-placeholder.svg');
     $unread = \App\Models\ContactMessage::unread()->count();
     $nav = [
         ['route' => 'admin.dashboard', 'label' => 'Dashboard', 'icon' => 'grid'],
@@ -28,7 +29,9 @@
     <div class="admin-shell">
         <aside class="admin-sidebar" id="adminSidebar">
             <a class="admin-brand" href="{{ route('admin.dashboard') }}">
-                <span class="admin-brand__mark">{{ $profile->initials() }}</span>
+                <span class="admin-brand__mark">
+                    <img src="{{ $profilePhoto }}" alt="" aria-hidden="true">
+                </span>
                 <span class="admin-brand__text">
                     <strong>{{ $profile->name }}</strong>
                     <small>Studio Panel</small>
@@ -57,7 +60,9 @@
                 </a>
 
                 <div class="admin-mini-profile">
-                    <span class="admin-avatar">{{ $profile->initials() }}</span>
+                    <span class="admin-avatar admin-avatar--profile">
+                        <img src="{{ $profilePhoto }}" alt="" aria-hidden="true">
+                    </span>
                     <div>
                         <strong>{{ $profile->name }}</strong>
                         <small>{{ auth()->user()->email }}</small>
