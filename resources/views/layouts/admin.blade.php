@@ -4,7 +4,7 @@
     $unread = \App\Models\ContactMessage::unread()->count();
     $nav = [
         ['route' => 'admin.dashboard', 'label' => 'Dashboard', 'icon' => 'grid'],
-        ['route' => 'admin.tasks.index', 'label' => 'Karya & Tugas', 'icon' => 'layers'],
+        ['route' => 'admin.tasks.index', 'label' => 'Tugas', 'icon' => 'layers'],
         ['route' => 'admin.skills.index', 'label' => 'Keahlian', 'icon' => 'spark'],
         ['route' => 'admin.messages.index', 'label' => 'Pesan Masuk', 'icon' => 'mail', 'badge' => $unread],
         ['route' => 'admin.profile.edit', 'label' => 'Profil Situs', 'icon' => 'user'],
